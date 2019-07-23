@@ -7,7 +7,7 @@ only ports 4040-4049 are open for Server
 
 will log in directly to folder with java code, can use PuTTy/WinSCP on windows, on linux terminal
 ```
-##Compile and Run
+## Compile and Run
 ```
 on server:
 javac Server.java
@@ -19,7 +19,7 @@ java Client <method> <command> <data>
 
 e.g. java Client 116.251.192.118 4040 add user <user> <pass>
 ```
-### methods
+## methods
 ```
 methods <get,del,add,del> not all added
 
