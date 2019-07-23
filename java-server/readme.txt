@@ -1,6 +1,23 @@
+SSH Server: 116.251.192.118 port 22, username: compx318 password: compx318
+database mariaDB: http://116.251.192.118/phpmyadmin, username: compx318 password: compx318
+only ports 4040-4049 are open for Server
+--------------
+will log in directly to folder with java code, can use PuTTy/WinSCP on windows, on linux terminal
+--------------
+on server:
+javac Server.java
 java -cp ".:mariadb-java-client-2.4.2.jar" Server <port>
 
-on server only ports 4040-4049 are open
-command "java Client 116.251.192.118 4040 add user <user> <pass>"
+on own computer/uni
+javac Client.java
+java Client <method> <command> <data>
 
-as long as running on same server as database
+e.g. java Client 116.251.192.118 4040 add user <user> <pass>
+------------------
+
+methods <get,del,add,del> not all added
+
+<method> user <username> <password> 
+all there is atm
+
+
