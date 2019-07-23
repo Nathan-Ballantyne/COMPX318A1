@@ -23,7 +23,7 @@ e.g. java Client 116.251.192.118 4040 add user <user> <pass>
 ```
 methods <get,del,add,del> not all added
 
-<method> user <username> <password> 
+<add> user <username> <password> 
 all there is atm
 ```
 
