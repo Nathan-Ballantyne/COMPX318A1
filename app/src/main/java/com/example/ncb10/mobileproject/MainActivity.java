@@ -69,11 +69,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void createEvent(View v){
         PopupWindow popUp;
-        LinearLayout layout;
+        final LinearLayout layout;
         TextView tv;
         TextView tv2;
         ViewGroup.LayoutParams params;
         final EditText editText;
+        final EditText editText2;
         LinearLayout mainLayout;
         Button but;
         boolean click = true;
@@ -84,16 +85,25 @@ public class MainActivity extends AppCompatActivity {
         tv = new TextView(this);
         tv2 = new TextView(this);
         editText = new EditText(this);
+        editText2 = new EditText(this);
+
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //editText.isFocusable();
+                editText.requestFocus();
 
+                InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                im.showSoftInput(layout, InputMethodManager.SHOW_IMPLICIT);
             }
         });
-
-
-
-
+        editText2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //editText2.isFocusable();
+                v.requestFocus();
+            }
+        });
         InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         im.showSoftInput(editText, InputMethodManager.SHOW_FORCED);
 
@@ -113,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
         layout.addView(tv, params);
         layout.addView(tv2, params);
         layout.addView(editText, params);
+        layout.addView(editText2, params);
         popUp.setContentView(layout);
         popUp.showAtLocation(layout, Gravity.CENTER, 0, 0);
         //-300,240
