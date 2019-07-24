@@ -20,10 +20,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText editText;
         final EditText editText2;
         LinearLayout mainLayout;
+
         Button but;
         boolean click = true;
         Dialog myDialog;
@@ -87,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         tv2 = new TextView(this);
         editText = new EditText(this);
         editText2 = new EditText(this);
+        Spinner s = new Spinner(this);
 
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +120,12 @@ public class MainActivity extends AppCompatActivity {
             popUp.dismiss();
             click = true;
         }
+        String[] hours = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+                "11", "12", "13", "14", "15", "16", "17", "18", "19",
+                "20","21", "22", "23"};
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(MainActivity.this,
+                android.R.layout.simple_list_item_1, hours);
+        s.setAdapter(myAdapter);
         params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         layout.setOrientation(LinearLayout.VERTICAL);
@@ -125,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
         layout.addView(tv2, params);
         layout.addView(editText, params);
         layout.addView(editText2, params);
+        layout.addView(s, params);
         popUp.setContentView(layout);
         popUp.showAtLocation(layout, Gravity.CENTER, 0, 0);
         //-300,240
