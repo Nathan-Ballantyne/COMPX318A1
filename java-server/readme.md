@@ -15,15 +15,16 @@ java -cp ".:mariadb-java-client-2.4.2.jar" Server <port>
 
 on own computer/uni
 javac Client.java
-java Client <method> <command> <data>
+java Client <ip> <port> <method> <command> <data>
 
 e.g. java Client 116.251.192.118 4040 add user <user> <pass>
 ```
-## methods
+## Methods
 ```
-methods <get,del,add,del> not all added
+methods <get,del,add,del>
 
-<add> user <username> <password> 
-all there is atm
+add methods: add (currently only one)
+
+add user <username> <password> 
 ```
 
