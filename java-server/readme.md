@@ -5,7 +5,7 @@ SSH Server: 116.251.192.118 port 22, username: compx318 password: compx318
 database mariaDB: http://116.251.192.118/phpmyadmin, username: compx318 password: compx318
 only ports 4040-4049 are open for Server
 
-will log in directly to folder with java code, can use PuTTy/WinSCP on windows, on linux terminal
+will log in directly to folder with java code, can use PuTTy/WinSCP on windows, or terminal if on linux
 ```
 ## Compile and Run
 ```
@@ -26,5 +26,6 @@ methods <get,del,add,del>
 add methods: add (currently only one)
 
 add user <username> <password> 
+Returns "success" or "error" on return to client
 ```
 
