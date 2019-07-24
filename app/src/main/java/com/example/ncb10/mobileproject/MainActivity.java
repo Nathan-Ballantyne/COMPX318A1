@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         boolean click = true;
         Dialog myDialog;
         popUp = new PopupWindow(this);
+        popUp.setFocusable(true);
         layout = new LinearLayout(this);
         //mainLayout = new LinearLayout(this);
         tv = new TextView(this);
