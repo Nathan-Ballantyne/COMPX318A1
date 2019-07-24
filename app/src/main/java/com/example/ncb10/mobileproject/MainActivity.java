@@ -20,10 +20,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,25 +70,38 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void createEvent(View v){
+        //Initialise Variables
         PopupWindow popUp;
         final LinearLayout layout;
+        LinearLayout layout2;
+        LinearLayout layout3;
+        LinearLayout layout4;
         TextView tv;
         TextView tv2;
+        TextView tv3;
         ViewGroup.LayoutParams params;
         final EditText editText;
-        final EditText editText2;
         LinearLayout mainLayout;
+
         Button but;
+        Button but2;
         boolean click = true;
-        Dialog myDialog;
+        //Dialog myDialog;
         popUp = new PopupWindow(this);
         popUp.setFocusable(true);
         layout = new LinearLayout(this);
+        layout2 = new LinearLayout(this);
+        layout3 = new LinearLayout(this);
+        layout4 = new LinearLayout(this);
         //mainLayout = new LinearLayout(this);
         tv = new TextView(this);
         tv2 = new TextView(this);
+        tv3 = new TextView(this);
         editText = new EditText(this);
-        editText2 = new EditText(this);
+        Spinner s = new Spinner(this);
+        Spinner s2 = new Spinner(this);
+        but = new Button(this);
+        but2 = new Button(this);
 
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,13 +111,6 @@ public class MainActivity extends AppCompatActivity {
 
                 InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 im.showSoftInput(layout, InputMethodManager.SHOW_IMPLICIT);
-            }
-        });
-        editText2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //editText2.isFocusable();
-                v.requestFocus();
             }
         });
         InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -116,15 +124,48 @@ public class MainActivity extends AppCompatActivity {
             popUp.dismiss();
             click = true;
         }
+        //Value of hours and minutes.
+        String[] hours = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+                "11", "12", "13", "14", "15", "16", "17", "18", "19",
+                "20","21", "22", "23"};
+        String[] minutes = {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
+                "11", "12", "13", "14", "15", "16", "17", "18", "19",
+                "20", "21", "22", "23", "24", "25", "26", "27", "28", "29",
+                "30", "31", "32", "33", "34", "35", "36", "37", "38", "39",
+                "40", "41", "42", "43", "44", "45", "46", "47", "48", "49",
+                "50", "51", "52", "53", "54", "55", "56", "57", "58", "59",};
+
+        //Adding the value in to adapter array
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(MainActivity.this,
+                android.R.layout.simple_list_item_1, hours);
+        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(MainActivity.this,
+                android.R.layout.simple_list_item_1, minutes);
+
+        //set the Drop down box with hour and minutes as value in them
+        s.setAdapter(myAdapter);
+        s2.setAdapter(myAdapter2);
+
+        //Layout setting for popUp box
         params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         layout.setOrientation(LinearLayout.VERTICAL);
-        tv.setText("Hi this is a sample text for popup window");
+        tv.setText("Creating Event Please enter the values below");
         tv2.setText("Gym Location/Name : ");
+        tv3.setText("Egg hatch time : ");
+        but.setText("Create Event");
+        but2.setText("Cancel");
         layout.addView(tv, params);
-        layout.addView(tv2, params);
-        layout.addView(editText, params);
-        layout.addView(editText2, params);
+        layout3.addView(tv2, params);
+        layout3.addView(editText, params);
+        layout.addView(layout3, params);
+        layout2.addView(tv3, params);
+        layout2.addView(s, params);
+        layout2.addView(s2, params);
+        layout.addView(layout2, params);
+        layout4.addView(but, params);
+        layout4.addView(but2, params);
+        layout.addView(layout4,params);
+
         popUp.setContentView(layout);
         popUp.showAtLocation(layout, Gravity.CENTER, 0, 0);
         //-300,240
