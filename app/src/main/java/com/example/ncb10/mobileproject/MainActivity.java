@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void createEvent(View v){
         //Initialise Variables
-        PopupWindow popUp;
+        final PopupWindow popUp;
         final LinearLayout layout;
         LinearLayout layout2;
         LinearLayout layout3;
@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button but;
         Button but2;
+        Button but3;
         boolean click = true;
         //Dialog myDialog;
         popUp = new PopupWindow(this);
@@ -98,23 +99,52 @@ public class MainActivity extends AppCompatActivity {
         tv2 = new TextView(this);
         tv3 = new TextView(this);
         editText = new EditText(this);
-        Spinner s = new Spinner(this);
-        Spinner s2 = new Spinner(this);
+        final Spinner s = new Spinner(this);
+        final Spinner s2 = new Spinner(this);
         but = new Button(this);
         but2 = new Button(this);
+        but3 = new Button(this);
+        final InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //editText.isFocusable();
-                editText.requestFocus();
-
-                InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                im.showSoftInput(layout, InputMethodManager.SHOW_IMPLICIT);
                 im.showSoftInput(layout, InputMethodManager.SHOW_IMPLICIT);
             }
         });
-        InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        im.showSoftInput(editText, InputMethodManager.SHOW_FORCED);
+        but3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                im.hideSoftInputFromWindow(v.getWindowToken(),0);
+            }
+        });
+
+
+
+//        InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//        im.showSoftInput(editText, InputMethodManager.SHOW_FORCED);
+
+        but.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String location = editText.getText().toString();
+                String eggHour = s.getSelectedItem().toString();
+                String eggMinutes = s2.getSelectedItem().toString();
+
+                //Add the value in to database
+
+                popUp.dismiss();
+            }
+        });
+
+        but2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popUp.dismiss();
+            }
+        });
 
         if (click) {
             //popUp.showAtLocation(layout, Gravity.TOP, -300, 240);
@@ -154,9 +184,11 @@ public class MainActivity extends AppCompatActivity {
         tv3.setText("Egg hatch time : ");
         but.setText("Create Event");
         but2.setText("Cancel");
+        but3.setText("Enter");
         layout.addView(tv, params);
         layout3.addView(tv2, params);
         layout3.addView(editText, params);
+        layout3.addView(but3, params);
         layout.addView(layout3, params);
         layout2.addView(tv3, params);
         layout2.addView(s, params);
