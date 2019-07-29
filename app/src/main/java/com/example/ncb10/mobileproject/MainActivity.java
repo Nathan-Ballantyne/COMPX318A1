@@ -23,13 +23,19 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity {
 
+    String location;
+    String eggHour;
+    String eggMinutes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,9 +135,10 @@ public class MainActivity extends AppCompatActivity {
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String location = editText.getText().toString();
-                String eggHour = s.getSelectedItem().toString();
-                String eggMinutes = s2.getSelectedItem().toString();
+                location = editText.getText().toString();
+                eggHour = s.getSelectedItem().toString();
+                eggMinutes = s2.getSelectedItem().toString();
+                event();
 
                 //Add the value in to database
 
@@ -201,6 +208,13 @@ public class MainActivity extends AppCompatActivity {
         popUp.setContentView(layout);
         popUp.showAtLocation(layout, Gravity.CENTER, 0, 0);
         //-300,240
+    }
+
+    public void event(){
+        TextView loc = findViewById(R.id.textView1);
+        TextView hour = findViewById(R.id.textView2);
+        loc.setText(location);
+        hour.setText(eggHour + ":" + eggMinutes);
     }
 
 
