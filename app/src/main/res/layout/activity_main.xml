@@ -30,5 +30,36 @@
         android:inputType="textPersonName"
         android:text="Name" />
 
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/radioGroup"
+        android:orientation="horizontal"
+        android:layout_marginTop="135dp"
+        android:layout_marginLeft="20dp"
+        android:layout_above="@+id/view_below">
+
+        <RadioButton
+            android:id="@+id/radio_Accept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Accept" />
+
+        <RadioButton
+            android:id="@+id/radio_Maybe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maybe" />
+
+        <RadioButton
+            android:id="@+id/radio_Decline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Decline" />
+
+    </RadioGroup>
+
 
 </android.support.design.widget.CoordinatorLayout>
