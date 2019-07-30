@@ -28,11 +28,13 @@
     <View
         android:id="@+id/view2"
         android:layout_width="359dp"
-        android:layout_height="130dp"
+        android:layout_height="128dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:visibility="invisible"
+        android:outlineProvider="paddedBounds"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
@@ -44,9 +46,10 @@
         android:id="@+id/Gym"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
         android:text="Gym Location :"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
@@ -57,6 +60,7 @@
         android:layout_marginStart="124dp"
         android:layout_marginTop="12dp"
         android:text="TextView"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
@@ -64,9 +68,10 @@
         android:id="@+id/Egg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:text="Egg hatch hour  :"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toTopOf="@+id/view2" />
 
@@ -77,7 +82,43 @@
         android:layout_marginStart="128dp"
         android:layout_marginTop="40dp"
         android:text="TextView"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/view_below"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="76dp"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        tools:ignore="UnknownId">
+
+        <RadioButton
+            android:id="@+id/radio_Accept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Accept" />
+
+        <RadioButton
+            android:id="@+id/radio_Maybe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maybe" />
+
+        <RadioButton
+            android:id="@+id/radio_Decline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Decline" />
+
+    </RadioGroup>
 
 </android.support.constraint.ConstraintLayout>

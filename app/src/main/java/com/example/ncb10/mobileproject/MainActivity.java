@@ -26,6 +26,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -213,8 +214,20 @@ public class MainActivity extends AppCompatActivity {
     public void event(){
         TextView loc = findViewById(R.id.textView1);
         TextView hour = findViewById(R.id.textView2);
+        TextView titleloc = findViewById(R.id.Gym);
+        TextView titlehour = findViewById(R.id.Egg);
+        RadioGroup attend = findViewById(R.id.radioGroup);
+        View view2 = findViewById(R.id.view2);
         loc.setText(location);
         hour.setText(eggHour + ":" + eggMinutes);
+
+        loc.setVisibility(View.VISIBLE);
+        hour.setVisibility(View.VISIBLE);
+        titleloc.setVisibility(View.VISIBLE);
+        titlehour.setVisibility(View.VISIBLE);
+        attend.setVisibility(View.VISIBLE);
+        view2.setVisibility(View.VISIBLE);
+
     }
 
 
