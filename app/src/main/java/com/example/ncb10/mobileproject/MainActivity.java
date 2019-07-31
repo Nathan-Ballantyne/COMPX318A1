@@ -32,6 +32,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.security.acl.Group;
+
 public class MainActivity extends AppCompatActivity {
 
     String location;
@@ -69,13 +71,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onButtonClick(View v){
-        Intent myIntent = new Intent(getBaseContext(),
-                StartScreen.class);
-            startActivity(myIntent);
-
-
+    public void onLoginCLICK(View v){
+        Intent logIntent = new Intent(getBaseContext(),
+                Login.class);
+            startActivity(logIntent);
     }
+
     public void createEvent(View v){
         //Initialise Variables
         final PopupWindow popUp;
@@ -228,6 +229,15 @@ public class MainActivity extends AppCompatActivity {
         attend.setVisibility(View.VISIBLE);
         view2.setVisibility(View.VISIBLE);
 
+    }
+
+    public void newEvent(){
+        TextView loc = new TextView(this);
+        TextView hour = new TextView(this);
+        TextView titleloc = new TextView(this);
+        TextView titlehour = new TextView(this);
+        RadioGroup attend = new RadioGroup(this);
+        View view2 = new View(this);
     }
 
 
