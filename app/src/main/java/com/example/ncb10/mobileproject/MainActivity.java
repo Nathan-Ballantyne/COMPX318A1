@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     String eggHour;
     String eggMinutes;
 
+    Boolean events = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,10 +138,23 @@ public class MainActivity extends AppCompatActivity {
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                location = editText.getText().toString();
-                eggHour = s.getSelectedItem().toString();
-                eggMinutes = s2.getSelectedItem().toString();
-                event();
+                //if(events == false){
+                    location = editText.getText().toString();
+                    eggHour = s.getSelectedItem().toString();
+                    eggMinutes = s2.getSelectedItem().toString();
+                    event();
+                    //events = true;
+                //}
+//                else{
+//                    location = editText.getText().toString();
+//                    eggHour = s.getSelectedItem().toString();
+//                    eggMinutes = s2.getSelectedItem().toString();
+//                    newEvent(v);
+//                }
+
+
+
+
 
                 //Add the value in to database
 
@@ -231,14 +245,68 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void newEvent(){
-        TextView loc = new TextView(this);
-        TextView hour = new TextView(this);
-        TextView titleloc = new TextView(this);
-        TextView titlehour = new TextView(this);
-        RadioGroup attend = new RadioGroup(this);
-        View view2 = new View(this);
-    }
+
+//    public void newEvent(View v){
+//
+//
+//        TextView loc1 = findViewById(R.id.textView1);
+//        TextView hour1 = findViewById(R.id.textView2);
+//        TextView titleloc1 = findViewById(R.id.Gym);
+//        TextView titlehour1 = findViewById(R.id.Egg);
+//        RadioGroup attend1 = findViewById(R.id.radioGroup);
+//        View view2 = findViewById(R.id.view2);
+//
+//        float loc1x = loc1.getX();
+//        float hour1x = hour1.getX();
+//        float titleloc1x = titleloc1.getX();
+//        float titlehour1x = titlehour1.getX();
+//        float attend1x = attend1.getX();
+//        float view2x = view2.getX();
+//
+//        float loc1y = loc1.getY();
+//        float hour1y = hour1.getY();
+//        float titleloc1y = titleloc1.getY();
+//        float titlehour1y = titlehour1.getY();
+//        float attend1y = attend1.getY();
+//        float view2y = view2.getY();
+//
+//
+//
+//        loc1.setY(loc1.getY() + 500);
+//        hour1.setY(hour1.getY() + 500);
+//        titleloc1.setY(titleloc1.getY() + 500);
+//        titlehour1.setY(titlehour1.getY() + 500);
+//        attend1.setY(attend1.getY() + 500);
+//        //view2.setY(view2.getY() + 500);
+//
+//        TextView loc2 = new TextView(this);
+//        TextView hour2 = new TextView(this);
+//        TextView titleloc2 = new TextView(this);
+//        TextView titlehour2 = new TextView(this);
+//        RadioGroup attend2 = new RadioGroup(this);
+//        //View view3 = new View(this);
+//
+//        loc2.setX(loc1x);
+//        loc2.setY(loc1y);
+//        hour2.setX(hour1x);
+//        hour2.setY(hour1y);
+//        titleloc2.setX(titleloc1x);
+//        titleloc2.setY(titleloc1y);
+//        titlehour2.setX(titlehour1x);
+//        titlehour2.setY(titlehour1y);
+//        attend2.setX(attend1x);
+//        attend2.setY(attend1y);
+////        view3.setX(view2x);
+////        view3.setY(view2y);
+//
+//        loc2.setText(location);
+//        hour2.setText(eggHour + ":" + eggMinutes);
+//
+//
+//
+//
+//
+//    }
 
 
 }
