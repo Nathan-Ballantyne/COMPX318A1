@@ -11,11 +11,10 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class SignUp extends AppCompatActivity {
-    private static Socket s;
-    private static PrintWriter pw;
-    private SendResponse sender;
+
+    private ServerClient sender;
     //Change this to whatever IP Address you are using it on
-    private static String ipadd = "116.251.192.118";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +28,7 @@ public class SignUp extends AppCompatActivity {
         EditText pass = findViewById(R.id.textPassword);
         String username = user.getText().toString();
         String password = pass.getText().toString();
-        sender = new SendResponse();
+        sender = new ServerClient();
         sender.getReply("add user " + username + " " + password);
         sender.execute();
         Intent createIntent = new Intent(getBaseContext(),
@@ -42,38 +41,5 @@ public class SignUp extends AppCompatActivity {
                 Login.class);
         startActivity(returnIntent);
     }
-    public static class SendResponse extends AsyncTask<String, Void, String> {
 
-        String Reply;
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-            try{
-                s = new Socket(ipadd,4000);
-                pw = new PrintWriter(s.getOutputStream());
-                pw.write(Reply);
-                pw.flush();
-                pw.close();
-                s.close();
-
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-        }
-
-        protected void getReply(String Reply_){
-            Reply = Reply_;
-        }
-    }
 }
